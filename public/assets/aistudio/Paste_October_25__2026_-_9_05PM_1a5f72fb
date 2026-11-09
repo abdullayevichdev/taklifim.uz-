@@ -1,0 +1,1191 @@
+# TAKLIFIM — COMPLETE FRONTEND PROJECT FROM SCRATCH
+
+Act as a senior frontend developer, UI/UX designer, and motion designer. Build a complete, modern digital invitation platform called **Taklifim**.
+
+This is not a simple landing page. It is a comprehensive frontend project that includes a public website, invitation template catalog, interactive invitation builder, guest-facing invitation pages, customer dashboard, premium service ordering interface, and admin panel.
+
+The complete functional and visual requirements are described below. Follow this specification carefully. Do not require external website research or additional analysis. All necessary project requirements are provided in this document. Where a design decision is not explicitly specified, use your professional judgment to choose the most elegant, modern, and user-friendly solution.
+
+**Most important requirement:** Do not stop after creating the homepage. Build all specified pages, reusable components, navigation flows, and primary interactive features into a functional frontend prototype.
+
+---
+
+# 1. PROJECT OVERVIEW
+
+Project name: **Taklifim**
+
+Brand slogan: **“Har bir lahzaga o‘zgacha taklif.”**
+
+Taklifim is a digital invitation platform that enables users to create invitations for weddings, engagements, traditional Uzbek wedding celebrations, birthdays, anniversaries, and other special occasions.
+
+The platform offers two primary services:
+
+1. **Website invitations:** Interactive, beautifully designed web pages that guests can open through a personalized link.
+2. **Video invitations:** An ordering interface for customized video invitations featuring photographs, music, text, and animations.
+
+Users should be able to select a template, enter their event details, customize the design, preview the result, and proceed through a demonstration publishing and sharing workflow.
+
+The platform must also include RSVP functionality for guests and corresponding interfaces where invitation owners can review guest responses through their customer dashboard.
+
+## Primary objective
+
+Build every section described below within one consistent design system.
+
+Preserve the intended functionality of a modern digital invitation platform while creating an original visual identity for Taklifim. Do not reproduce another platform's branding, logo, proprietary text, or exact visual design.
+
+---
+
+# 2. TECHNOLOGY STACK AND PROJECT SCOPE
+
+The project will be developed using Google AI Studio Build.
+
+Use the following technologies:
+
+- React.
+- TypeScript.
+- Tailwind CSS.
+- Motion for React.
+- A routing solution appropriate for the project.
+- Reusable UI components.
+- Strongly typed TypeScript interfaces.
+- Separate translation dictionaries.
+- Dedicated mock-data and API service layers.
+
+Structure the project so another developer can integrate a real backend later without having to rewrite the frontend.
+
+**I am responsible for frontend development. Therefore:**
+
+- Do not build a real backend.
+- Do not create a database.
+- Do not implement production authentication or admin security.
+- Do not integrate a real payment processing system.
+- Do not require actual server-side file uploads.
+- Do not pretend that unavailable APIs are operational.
+
+Instead, use realistic mock data, local UI state, interactive forms, confirmation dialogs, and clearly defined API integration points.
+
+LocalStorage may be used for frontend demonstration features such as invitation drafts and user interface preferences. Never store real sensitive user information, payment information, or confidential credentials in LocalStorage.
+
+---
+
+# 3. TAKLIFIM BRAND IDENTITY AND DESIGN SYSTEM
+
+## Color palette
+
+Use the following primary colors:
+
+- Cream: `#F5EBDD`
+- Soft pink: `#F5C9D8`
+- Sky blue: `#B9DFFA`
+- White: `#FFFFFF`
+- Dark, readable neutral colors for typography.
+- Soft gray and neutral tones for secondary interface elements.
+
+Use cream as the primary background color. Use pink for selected accents and important buttons, and sky blue for secondary elements, selections, and subtle gradients.
+
+Maintain a balanced color palette. Do not make every element pink.
+
+## Liquid Glass visual style
+
+Create a premium, Apple-inspired Liquid Glass aesthetic featuring:
+
+- Transparent and translucent surfaces.
+- Background blur.
+- Subtle white borders.
+- Soft inner highlights.
+- Natural-looking shadows.
+- Gentle gradients.
+- Delicate reflections.
+- Layered compositions.
+- Refined depth and blur effects.
+
+Apply Liquid Glass selectively to navigation, selected cards, modal dialogs, floating elements, and appropriate interactive panels.
+
+**Do not make every element glass-like.** Text, forms, and important information must remain highly readable.
+
+## Typography
+
+- Use elegant, premium-looking, highly readable fonts.
+- Consider refined serif typography for invitation previews.
+- Use clean, modern sans-serif typography for dashboards and admin interfaces.
+- Ensure correct rendering of Uzbek Latin, Russian Cyrillic, and English characters.
+- Establish a clear hierarchy between headings, descriptions, labels, and buttons.
+
+## Brand elements
+
+Create an original Taklifim logo or typographic wordmark. You may use an original invitation, heart, or delicate envelope-inspired symbol.
+
+Do not use the Invitate name or logo.
+
+---
+
+# 4. MOTION AND ANIMATIONS — HIGH PRIORITY
+
+One of Taklifim's main visual advantages must be its sophisticated, high-quality animations.
+
+Use Motion for React to implement the following.
+
+## Page animations
+
+- Smooth entrance animations for headings and primary elements.
+- Scroll-triggered section reveals.
+- Staggered entrance animations for cards.
+- Smooth page transitions.
+- Modal dialogs with opacity and scale transitions.
+- An animated mobile navigation menu.
+
+## Hover effects and micro-interactions
+
+- Natural press effects when buttons are clicked.
+- Subtle elevation effects when cards are hovered.
+- Gentle 3D tilt or perspective effects on selected template cards.
+- Smooth icon animations on hover.
+- Animated tab indicators and filter transitions.
+- Subtle focus highlights on input fields.
+- Animated loading and success states for buttons.
+
+## Premium visual effects
+
+- Slowly moving gradients.
+- Gentle floating effects on selected hero elements.
+- Subtle light sweeps across glass surfaces.
+- Natural image zoom effects.
+- Minimal decorative background elements.
+- Parallax effects where appropriate.
+- Smooth layout transitions when templates change.
+
+## Dashboard animations
+
+- Smooth entrance animations for statistic cards.
+- Elegant chart entrance animations.
+- Smooth table-state transitions and modal interactions.
+- Animated toast notifications.
+
+## Invitation animations
+
+- An elegant invitation-cover opening effect.
+- Sequential reveal animations on guest-facing invitation pages.
+- Animated countdown updates.
+- Smooth photo-gallery transitions.
+- Animated music-control icons.
+- Refined RSVP success animations.
+
+Animations must feel premium and intentional. Avoid excessive movement, unnecessary rotations, heavy 3D effects, or distracting visual behavior.
+
+Maintain performance on mobile devices and respect the user's `prefers-reduced-motion` preference.
+
+---
+
+# 5. GLOBAL WEBSITE NAVIGATION
+
+Create a polished desktop header containing:
+
+- Taklifim logo.
+- Home.
+- Templates.
+- How It Works.
+- Pricing.
+- Premium Service.
+- FAQ.
+- Language selector.
+- Account login.
+- Primary “Create Invitation” button.
+
+The header should look clean and elegant at the top of the page. As the user scrolls, it should transition into a subtle Liquid Glass appearance.
+
+For mobile devices, provide:
+
+- Logo.
+- Language selection or an easily accessible language menu.
+- Animated hamburger navigation.
+- Large, accessible navigation targets.
+
+Reuse the header across all relevant public-facing pages.
+
+---
+
+# 6. HOMEPAGE
+
+Route: `/`
+
+Build a complete, professional landing page.
+
+## 6.1 Hero section
+
+Create a visually striking premium hero section.
+
+On the left:
+- A small category label introducing digital invitations.
+- The headline: “Har bir lahzaga o‘zgacha taklif.”
+- A concise, clear description of the service.
+- A “Create Invitation” primary button.
+- A secondary “Explore Templates” button.
+
+On the right:
+- An elegant digital invitation mockup.
+- Sample names, event date, venue, and RSVP button inside the invitation.
+- A phone-frame preview demonstrating how the invitation looks on mobile.
+- Subtle floating decorative elements.
+- Refined glass layers and premium motion effects.
+
+The hero section must immediately communicate what Taklifim does.
+
+## 6.2 Service categories
+
+Create two visually distinct feature cards.
+
+**Website Invitations**
+- Interactive invitation pages.
+- Event details.
+- Photo galleries.
+- Music.
+- Location maps.
+- Countdown timers.
+- RSVP functionality.
+- Multilingual presentation.
+
+**Video Invitations**
+- Video-ordering interface using photographs and text.
+- Music preferences.
+- Video-style previews.
+- A button leading to the premium ordering form.
+
+Give each card its own preview and call-to-action button.
+
+## 6.3 How It Works
+
+Present a four-step visual process:
+
+1. Choose a template.
+2. Enter event details.
+3. Preview your invitation.
+4. Share it using a link or QR code.
+
+Each step should include an icon, a concise explanation, and a scroll-triggered animation.
+
+## 6.4 Featured templates
+
+Display at least eight sample invitation templates.
+
+Example names:
+- Aurelia.
+- Swan.
+- Velvet.
+- Estelle.
+- Bloom.
+- Golden Hour.
+- Safir.
+- Butterfly.
+
+These are new Taklifim demonstration templates and must have original visual designs.
+
+Do not create eight nearly identical cards by merely changing their colors. Each template should have a distinct composition, typography, color combination, or decorative style.
+
+Each card must include:
+- Preview image or original visual design.
+- Template name.
+- Event category.
+- Demonstration price.
+- “Preview Template” action.
+- “Use This Template” action.
+
+## 6.5 Video invitations
+
+Create a dedicated section explaining the video invitation service.
+
+Include:
+- A video preview window.
+- Play/pause demonstration controls.
+- A concise service description.
+- A “Order a Video Invitation” button.
+
+Do not implement actual video generation. This is a frontend demonstration and ordering interface.
+
+## 6.6 Platform benefits
+
+Present the following features using elegant cards:
+
+- Mobile-friendly invitations.
+- Shareable links.
+- QR code previews.
+- Photo galleries.
+- Maps and directions.
+- Music.
+- Guest RSVP responses.
+- Invitation editing.
+- Three-language interface.
+- Personalized invitation URLs.
+
+## 6.7 Statistics
+
+Create demonstration statistic cards for:
+- Invitations.
+- Templates.
+- Guests.
+- Views.
+
+Do not represent these numbers as real platform statistics. Clearly separate demonstration data in the code and project documentation.
+
+## 6.8 Pricing preview
+
+Display three pricing cards:
+- Standard.
+- Personalized.
+- Individual Premium.
+
+Full pricing details must be available on the separate `/pricing` page.
+
+## 6.9 Testimonials, FAQ, and footer
+
+Include:
+- Demonstration customer testimonials.
+- FAQ accordion.
+- Final call-to-action section.
+- Footer.
+- Brand logo.
+- Navigation links.
+- Language selector.
+- Configurable contact and social-media links.
+- Terms of service.
+- Privacy policy.
+
+Never present demonstration testimonials as verified feedback from real customers.
+
+---
+
+# 7. TEMPLATE CATALOG
+
+Route: `/templates`
+
+This is one of the platform's primary product pages.
+
+## Layout
+
+Include:
+- Page heading and description.
+- Category filters.
+- Search input.
+- Sorting menu.
+- Template grid.
+- Result count.
+- Loading and empty states.
+- Preview for each template.
+
+## Categories
+
+- All.
+- Weddings.
+- Engagements.
+- Traditional wedding celebrations.
+- Birthdays.
+- Women's celebrations.
+- Anniversaries.
+- Baby showers.
+- Other events.
+
+## Filters
+
+Implement functional filters for:
+- Category.
+- Price range.
+- Free demonstration or paid plan.
+- Popularity.
+- Newest templates.
+- Name-based search.
+
+All filters must operate on the actual mock data.
+
+## Template cards
+
+Each card must contain:
+- Preview.
+- Name.
+- Category.
+- Price.
+- “View” action.
+- “Select” action.
+- Subtle hover animations.
+
+Use a responsive grid: one column on small phones, two columns on tablets, and three or four columns on larger desktop screens, depending on available width.
+
+---
+
+# 8. INDIVIDUAL TEMPLATE DETAILS
+
+Route: `/templates/:slug`
+
+Display detailed information about the selected template.
+
+Include:
+- Large invitation preview.
+- Mobile and desktop preview modes.
+- Template name.
+- Category.
+- Demonstration price.
+- Short description.
+- Feature list.
+- Color style.
+- Suitable event types.
+- “Use This Template” button.
+- Related templates.
+
+If an invalid slug is provided, display a polished Not Found page instead of a blank screen.
+
+---
+
+# 9. INVITATION BUILDER
+
+Route: `/create/:templateSlug`
+
+This is one of the most important and technically complex features of the project.
+
+The builder must not be a simple long form. It should feel like a professional, user-friendly, step-by-step editing experience.
+
+## Desktop layout
+
+- Settings panel on the left.
+- Live invitation preview on the right.
+
+## Mobile layout
+
+- Convenient switching between the preview and settings.
+- Responsive progress indicator.
+- Easy access to form controls.
+
+## 9.1 Builder steps
+
+1. Select a template.
+2. Enter event details.
+3. Edit invitation text and message.
+4. Customize colors and typography.
+5. Add photographs.
+6. Configure the event schedule.
+7. Enter venue details and preview the map.
+8. Configure music.
+9. Configure guest and RSVP settings.
+10. Review the final invitation.
+11. Select a plan and enter the demonstration checkout flow.
+
+## 9.2 Event details
+
+Include form fields for:
+- Event type.
+- Event title.
+- Names.
+- Date.
+- Start time.
+- Optional end time.
+- Event venue.
+- Venue name.
+- Additional description.
+- Invitation message.
+- RSVP deadline.
+
+## 9.3 Design settings
+
+Allow users to:
+- Change templates.
+- Choose color palettes.
+- Select heading fonts.
+- Select body fonts.
+- Adjust text size.
+- Show or hide selected sections.
+- Preview images.
+- Choose background styles.
+
+## 9.4 Photographs
+
+Provide:
+- File input.
+- Image preview.
+- Remove-image action.
+- Gallery-order preview.
+- Browser-side image previews for the demonstration.
+
+Do not claim that images have been uploaded to a server. This functionality must remain ready for later backend integration.
+
+## 9.5 Event schedule
+
+Users must be able to:
+- Add schedule items.
+- Enter a time.
+- Enter a title.
+- Add a description.
+- Edit an item.
+- Remove an item.
+
+## 9.6 Venue and map
+
+Include:
+- Venue name.
+- Address.
+- Map URL field.
+- Demonstration map preview.
+- “View on Map” button.
+
+If no real map API or geocoding service is configured, do not create a fake functional map. Use an explicit placeholder or demonstration state.
+
+## 9.7 Music
+
+Include:
+- Music enable/disable toggle.
+- Sample music URL field.
+- Play/pause interface.
+- Music status.
+- Playback of a suitable audio sample if an available, permitted audio asset is provided.
+
+If no audio source is available, do not pretend music is playing.
+
+## 9.8 Live preview
+
+This is a critical requirement.
+
+The invitation preview must update immediately whenever the user changes:
+- Names.
+- Date.
+- Venue.
+- Text.
+- Colors.
+- Fonts.
+- Gallery.
+- Schedule.
+- Dress code.
+- RSVP settings.
+
+Create a dedicated preview component that uses the same state as the form.
+
+## 9.9 Draft management
+
+Include:
+- “Save Draft.”
+- “Restore Draft.”
+- “Start Over.”
+- A warning when leaving with unsaved changes.
+
+These features must work within the frontend demonstration.
+
+## 9.10 Final review
+
+Display:
+- Selected template.
+- Entered event information.
+- Selected plan.
+- Demonstration price.
+- Order details.
+- “Continue” or “Demo Checkout” button.
+
+Do not process real payments.
+
+---
+
+# 10. GUEST-FACING INVITATION PAGE
+
+Route: `/i/:slug`
+
+This must be a dedicated invitation page, not another marketing landing page.
+
+Create at least three visually distinct demonstration invitations:
+
+1. Elegant classic wedding.
+2. Modern minimalist wedding.
+3. Vibrant birthday or celebration.
+
+Each template must have its own composition and visual identity.
+
+## Invitation sections
+
+1. Cover.
+2. Names and event title.
+3. Countdown.
+4. Personal invitation message.
+5. Event date and time.
+6. Venue information.
+7. Event schedule.
+8. Photo gallery.
+9. Dress code.
+10. Additional event details.
+11. Music controls.
+12. RSVP form.
+13. Guest messages or wishes.
+14. Final thank-you section.
+
+Not every section must be mandatory for every event. Users should be able to show or hide optional sections through the builder.
+
+## Countdown timer
+
+Calculate the time remaining until the event, including days, hours, minutes, and seconds.
+
+If the event date has passed, do not display negative values. Show an appropriate event-started or event-completed state instead.
+
+## Photo gallery
+
+Include:
+- Responsive image grid.
+- Lightbox when an image is selected.
+- Previous and next image controls.
+- Keyboard-based closing.
+- Mobile-friendly interaction.
+
+## Dress code
+
+Include:
+- Color swatches.
+- Style description.
+- Additional notes.
+
+## RSVP form
+
+Include:
+- Full name.
+- Attending / unable to attend.
+- Attending alone / with a companion.
+- Number of guests.
+- Optional message or wish.
+- Optional meal preference.
+
+Implement form validation and a demonstration submission flow. Display a polished success message after submission.
+
+Do not claim that guest responses have been sent to a backend.
+
+## Sharing
+
+Provide:
+- Copy-link action.
+- QR code preview.
+- Native Web Share API support when available.
+- Copy-link fallback when native sharing is unavailable.
+
+---
+
+# 11. VIDEO INVITATION ORDERING PAGE
+
+Route: `/premium`, or a dedicated video-ordering section.
+
+Create an elegant page where users can request a customized video invitation.
+
+Include:
+- Event type.
+- Names.
+- Event date.
+- Preferred video style.
+- Color preferences.
+- Music preferences.
+- Additional text.
+- Contact details.
+- Additional notes.
+
+Provide a video preview or sample poster.
+
+After submitting the form, display a demonstration confirmation state.
+
+Do not implement real video rendering or server-side order submission.
+
+---
+
+# 12. PRICING PAGE
+
+Route: `/pricing`
+
+Create three pricing cards.
+
+## Standard
+
+- Select a ready-made template.
+- Enter basic invitation details.
+- Customize colors and text.
+- Preview the invitation.
+- View link and QR code previews.
+
+## Personalized
+
+- Everything included in Standard.
+- Additional design settings.
+- Additional invitation sections.
+- More individual color customization.
+
+## Individual Premium
+
+- Request a custom design.
+- Submit individual design preferences.
+- Access the premium order form.
+- View details about personalized services.
+
+Store prices in a separate configuration file. Use demonstration prices for now and do not present them as confirmed Taklifim business prices.
+
+Also include:
+- Recommended-plan indicator.
+- Plan comparison.
+- FAQ.
+- Call-to-action buttons.
+- Responsive pricing cards.
+
+---
+
+# 13. CUSTOMER DASHBOARD
+
+The customer dashboard should feel connected to the public website while providing a more structured interface for managing invitations and event-related information.
+
+## Dashboard overview
+
+Route: `/dashboard`
+
+Display:
+- Welcome message.
+- Total invitations.
+- Draft count.
+- Demonstration published invitations.
+- RSVP statistics.
+- Recent activity.
+- Create Invitation button.
+
+## My Invitations
+
+Route: `/dashboard/invitations`
+
+Include:
+- Invitation list.
+- Grid/list view.
+- Preview.
+- Status.
+- Date.
+- Edit action.
+- Duplicate action.
+- Delete action with confirmation modal.
+- Link and QR code preview.
+
+## Guests
+
+Route: `/dashboard/guests`
+
+Include:
+- Guest table.
+- Name.
+- Invitation.
+- RSVP status.
+- Guest count.
+- Message.
+- Search and filters.
+- Demonstration statistics.
+
+## Orders
+
+Route: `/dashboard/orders`
+
+Display:
+- Order number.
+- Service.
+- Date.
+- Demonstration price.
+- Status.
+- View-details action.
+
+Use clear status labels such as Pending, Demo, and Confirmed. Do not present a simulated payment as a real transaction.
+
+## Settings
+
+Route: `/dashboard/settings`
+
+Include:
+- Profile interface.
+- Name.
+- Email or phone inputs.
+- Language selector.
+- Interface preferences.
+- Demonstration save state.
+
+Do not create a real personal account system.
+
+---
+
+# 14. ADMIN PANEL
+
+Route: `/admin`
+
+Build a separate, professional administration interface.
+
+Visual direction:
+- Neutral backgrounds.
+- Clean tables and statistic cards.
+- Left sidebar.
+- Top navigation.
+- Search.
+- Filters.
+- Status badges.
+- Modal dialogs.
+- Responsive layout.
+
+## Admin dashboard
+
+Display demonstration statistics for:
+- Total templates.
+- Demo orders.
+- Demo customers.
+- Invitations.
+- RSVP responses.
+- Mock charts.
+
+## Template management
+
+Route: `/admin/templates`
+
+Include:
+- Template list.
+- Add-template form.
+- Name.
+- Category.
+- Demonstration price.
+- Preview.
+- Active/inactive status.
+- Edit action.
+- Delete confirmation.
+
+## Orders management
+
+Route: `/admin/orders`
+
+Include:
+- Order table.
+- Search.
+- Date filters.
+- Service type.
+- Status.
+- View details.
+- Demonstration status updates.
+
+## Customer management
+
+Route: `/admin/customers`
+
+Include:
+- Mock customer table.
+- Name.
+- Demonstration contact details.
+- Order count.
+- Status.
+- View details.
+
+## Pricing management
+
+Route: `/admin/plans`
+
+Include:
+- Pricing plans.
+- Editable prices.
+- Plan descriptions.
+- Feature lists.
+- Active/inactive status.
+
+## Payments
+
+Route: `/admin/payments`
+
+Include:
+- Demonstration payment records.
+- Date.
+- Order.
+- Amount.
+- Demonstration status.
+
+This must not function as a real financial system.
+
+## Content management
+
+Route: `/admin/content`
+
+Include editable interfaces for:
+- Homepage headings.
+- Descriptions.
+- FAQ content.
+- CTA text.
+- Footer text.
+
+These forms may operate using demonstration state.
+
+The admin panel must not claim to have real access control. Actual administrator permissions must be implemented by the backend developer.
+
+---
+
+# 15. LOGIN AND REGISTRATION INTERFACES
+
+Routes:
+- `/login`
+- `/register`
+- `/forgot-password`
+
+Create a premium, minimal interface.
+
+## Login
+
+Include:
+- Email or phone input.
+- Password input.
+- Show/hide password toggle.
+- Login button.
+- Registration link.
+- Forgot-password link.
+
+## Registration
+
+Include:
+- Name.
+- Email or phone.
+- Password.
+- Confirm password.
+- Terms acceptance.
+
+## Password recovery
+
+Include:
+- Contact input.
+- Demonstration submission state.
+
+Implement client-side validation. Do not create real authentication or password storage.
+
+---
+
+# 16. ADDITIONAL PAGES
+
+## FAQ — `/faq`
+
+Include:
+- Accordion.
+- Categories.
+- Search.
+- Smooth opening and closing animations.
+
+## Contact — `/contact`
+
+Include:
+- Contact form.
+- Name.
+- Email or phone.
+- Subject.
+- Message.
+- Validation.
+- Demonstration submission state.
+
+## Privacy Policy — `/privacy`
+
+## Terms of Service — `/terms`
+
+These pages must exist. Their content may use editable placeholder text. Do not present placeholder content as legal advice.
+
+## 404 page
+
+Create an original Taklifim-themed Not Found page with:
+- A clear message.
+- A button to return home.
+- A link to the template catalog.
+
+---
+
+# 17. THREE-LANGUAGE SYSTEM
+
+Taklifim must support:
+
+1. Uzbek — Latin script, default language.
+2. Russian — Cyrillic script.
+3. English.
+
+Store translations in separate dictionaries:
+
+- `uz.json`
+- `ru.json`
+- `en.json`
+
+Translate all pages, buttons, input labels, validation messages, status indicators, modal dialogs, and dashboard content.
+
+When the user changes the language, the relevant text must update immediately without unnecessarily navigating away from the current page.
+
+The website interface language and the guest-facing invitation language must be independent settings.
+
+Allow invitation owners to demonstrate Uzbek, Russian, and English versions of their guest-facing invitation.
+
+---
+
+# 18. ROUTING AND PROJECT STRUCTURE
+
+Implement the following routes:
+
+- `/`
+- `/templates`
+- `/templates/:slug`
+- `/create/:templateSlug`
+- `/i/:slug`
+- `/premium`
+- `/pricing`
+- `/contact`
+- `/faq`
+- `/privacy`
+- `/terms`
+- `/login`
+- `/register`
+- `/forgot-password`
+- `/dashboard`
+- `/dashboard/invitations`
+- `/dashboard/guests`
+- `/dashboard/orders`
+- `/dashboard/settings`
+- `/admin`
+- `/admin/templates`
+- `/admin/orders`
+- `/admin/customers`
+- `/admin/plans`
+- `/admin/payments`
+- `/admin/content`
+
+Suggested project structure:
+
+`src/components/`
+
+`src/layouts/`
+
+`src/pages/`
+
+`src/features/templates/`
+
+`src/features/builder/`
+
+`src/features/invitations/`
+
+`src/features/dashboard/`
+
+`src/features/admin/`
+
+`src/locales/`
+
+`src/services/`
+
+`src/types/`
+
+`src/data/`
+
+You may adapt this structure to the existing project environment, but components and data must remain well organized and clearly separated.
+
+---
+
+# 19. MOCK DATA AND API INTEGRATION
+
+Create TypeScript types for:
+
+- Template.
+- Invitation.
+- Guest.
+- RSVP.
+- Order.
+- PricingPlan.
+- UserProfile.
+- FAQItem.
+
+Keep mock data in separate files.
+
+Create placeholder service functions for future backend integration, including:
+
+- Fetching the template catalog.
+- Fetching template details.
+- Creating an invitation.
+- Updating an invitation.
+- Publishing an invitation.
+- Submitting an RSVP.
+- Fetching guests.
+- Creating an order.
+- Fetching orders.
+
+These functions may use mock data for now, but their structure must make it easy to replace mock implementations with real API calls later.
+
+When an API is unavailable, display appropriate loading, empty, and error states.
+
+---
+
+# 20. RESPONSIVE DESIGN AND ACCESSIBILITY
+
+The website must work well on:
+
+- Small phones.
+- Large phones.
+- Tablets.
+- Laptops.
+- Large desktop monitors.
+
+Requirements:
+- No horizontal overflow.
+- No clipped text.
+- Mobile-friendly buttons and controls.
+- Responsive template grids.
+- Adaptive dashboard layouts.
+- Modal dialogs that remain within the viewport.
+- Sufficient text contrast on glass surfaces.
+- Keyboard navigation and visible focus states.
+- Optimized image sizes.
+- Smooth animation performance on mobile devices.
+
+---
+
+# 21. STRICT QUALITY REQUIREMENTS
+
+Avoid the following mistakes:
+
+- Building only the homepage and leaving other routes empty.
+- Giving all buttons identical behavior or no behavior.
+- Repeating identical cards under different names.
+- Applying blur and gradients to every element.
+- Ignoring mobile responsiveness.
+- Translating only the header instead of the entire interface.
+- Separating the live preview from the builder's form state.
+- Creating nonfunctional search or filters.
+- Presenting demonstration payments or logins as real.
+- Presenting mock data as real customer information.
+- Adding unnecessary AI features.
+- Mixing backend responsibilities into the frontend.
+- Adding unnecessary complexity or excessive animations.
+
+## Final verification
+
+Before considering the project complete:
+
+1. Verify every route.
+2. Check design consistency across all pages.
+3. Test buttons and navigation.
+4. Verify that form changes update the live invitation preview.
+5. Test template search and filters.
+6. Test all three languages.
+7. Test mobile and desktop layouts.
+8. Fix TypeScript errors.
+9. Fix broken imports and missing components.
+10. Verify loading, empty, error, and success states.
+11. Verify that the API service layer and TypeScript types are ready for integration.
+12. Ensure the project runs in Google AI Studio's live preview.
+
+---
+
+# 22. IMPLEMENTATION ORDER
+
+Build the project in the following order:
+
+**Phase 1:** Design system, shared components, global navigation, and routing.
+
+**Phase 2:** Complete homepage, service sections, template catalog, and pricing.
+
+**Phase 3:** Template previews and interactive invitation builder.
+
+**Phase 4:** Guest-facing invitation pages.
+
+**Phase 5:** Customer dashboard.
+
+**Phase 6:** Admin panel and remaining pages.
+
+**Phase 7:** Multilingual translations, Motion animations, responsive testing, and bug fixes.
+
+Each phase must build on the previous one without breaking existing code or discarding the established design system.
+
+If the project is too large to complete in one pass, preserve the existing work and continue systematically through the remaining phases. Do not unnecessarily rewrite components that already work.
+
+# FINAL OBJECTIVE
+
+**Taklifim must become a distinctive, modern, elegant, multilingual, fully responsive digital invitation platform frontend with sophisticated Motion animations.**
+
+The experience must feel like a real product: users can select templates, customize invitations, see live previews, explore guest-facing invitation pages, demonstrate RSVP interactions, navigate a customer dashboard, and explore an admin panel.
+
+The functional scope must be comprehensive, the design must feel premium, and the code must be organized so another developer can integrate the real backend later.
+
+Begin by creating the complete project structure and the primary pages. **Do not stop after providing a plan or code examples. Start building the actual working frontend.**

@@ -1,0 +1,157 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-cream: #FDF9F5;
+    --color-soft-pink: #F5C9D8;
+    --color-deep-pink: #E27B9B;
+    --color-sky-blue: #B9DFFA;
+    --color-deep-sky: #4A9BD4;
+    --color-text-dark: #1E1418;
+  }
+
+  body {
+    background-color: transparent;
+    color: #241A1E;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* Wedding & Luxury Fonts */
+  .font-playfair {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+  .font-cormorant {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+  .font-cinzel {
+    font-family: 'Cinzel', Georgia, serif;
+  }
+  .font-script {
+    font-family: 'Great Vibes', cursive;
+  }
+  .font-alex {
+    font-family: 'Alex Brush', cursive;
+  }
+}
+
+/* Apple Liquid Glass Aesthetic Utilities */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 10px 32px 0 rgba(226, 123, 155, 0.08), 0 1px 2px 0 rgba(255, 255, 255, 0.8) inset;
+}
+
+.glass-panel-elevated {
+  background: rgba(255, 255, 255, 0.84);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 16px 48px -8px rgba(185, 223, 250, 0.22), 0 1px 3px 0 rgba(255, 255, 255, 0.9) inset;
+}
+
+.glass-panel-subtle {
+  background: rgba(255, 255, 255, 0.58);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 6px 24px 0 rgba(0, 0, 0, 0.04);
+}
+
+.glass-liquid-pink {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.82) 0%, rgba(245, 201, 216, 0.45) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 12px 36px -6px rgba(245, 201, 216, 0.35), 0 1px 2px 0 rgba(255, 255, 255, 0.8) inset;
+}
+
+.glass-liquid-sky {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.82) 0%, rgba(185, 223, 250, 0.45) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 12px 36px -6px rgba(185, 223, 250, 0.35), 0 1px 2px 0 rgba(255, 255, 255, 0.8) inset;
+}
+
+.glass-liquid-wedding {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.88) 0%, rgba(245, 201, 216, 0.35) 50%, rgba(185, 223, 250, 0.35) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  box-shadow: 0 20px 48px -10px rgba(180, 140, 160, 0.2), 0 1px 3px 0 rgba(255, 255, 255, 0.95) inset;
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 2px 12px rgba(226, 123, 155, 0.1);
+}
+
+.glass-card-hover {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 24px 50px -10px rgba(226, 123, 155, 0.22), 0 1px 3px 0 rgba(255, 255, 255, 1) inset;
+  border-color: rgba(255, 255, 255, 1);
+}
+
+/* Wedding text gradients */
+.text-gradient-rose {
+  background: linear-gradient(135deg, #1E1418 0%, #D9658B 60%, #4A9BD4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom scrollbars with pink/sky accents */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.5);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #F5C9D8, #B9DFFA);
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #E27B9B, #7FBEEB);
+}
+
+@keyframes floatSmooth {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(0.6deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.65;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.05);
+  }
+}
+
+.animate-float-smooth {
+  animation: floatSmooth 5s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+

@@ -1,0 +1,6 @@
+{
+  "name": "Taklifim - Raqamli Taklifnomalar",
+  "description": "Har bir lahzaga o‘zgacha taklif. To‘y, yubiley va bayramlar uchun zamonaviy interaktiv raqamli taklifnomalar va video taklifnoma xizmati.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
